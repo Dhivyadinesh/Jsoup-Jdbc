@@ -19,7 +19,6 @@ public class Product50 {
 		Scanner scan;
 		try {
 			scan = new Scanner(file);
-			
 			while (scan.hasNextLine()) {
 				//url stored in productUrl 
 				String productUrl = scan.nextLine();
@@ -29,9 +28,9 @@ public class Product50 {
 				System.out.println(productUrl);
 				String productName;
 				boolean SWScore = false, Description = false, Awards = false,
-						Features = false,TechnicalDetails = false,Pricing = false,FAQ = false,
-						RelatedCategories= false ,Alternatives = false,	Reviews = false,
-				        Videos= false,	Screenshots	= false ,Articles = false,
+				        Features = false,TechnicalDetails = false,Pricing = false,FAQ = false,
+					RelatedCategories= false ,Alternatives = false,	Reviews = false,
+				        Videos= false,	Screenshots = false ,Articles = false,
 				        Downloads = false,Customers = false,Integrations = false;
 				
 				//Getting productName from productUrl
@@ -39,14 +38,14 @@ public class Product50 {
 				System.out.println(productName);
 		
 				//checking SWScore is persent/not from productUrl
-		        try {
+		                try {
 		        	SWScore = doc.getElementsByClass("pop_score_d").hasText();
 					System.out.println("The product has SWScore topic found");
 				} catch (Exception e) {
 					System.out.println("The product has SWScore topic not found");
 				}
 				
-		        //checking Description is persent/not from productUrl
+		                //checking Description is persent/not from productUrl
 				try {
 					Description = doc.getElementById("sass-desc").hasText();
 					System.out.println("The product has Description topic found ");
@@ -71,7 +70,7 @@ public class Product50 {
 				}
 				
 				//checking TechnicalDetails is persent/not from productUrl
-		        try {
+		                try {
 		        	TechnicalDetails = doc.getElementById("technical-details").hasText();
 					System.out.println("The product has TechnicalDetails topic found ");
 				} catch (Exception e) {
@@ -103,7 +102,7 @@ public class Product50 {
 				}
                  
 				//checking Alternatives is persent/not from productUrl
-		        try {
+		                try {
 		        	Alternatives = doc.getElementById("alternatives").hasText();
 					System.out.println("The product has Alternatives topic found ");
 				} catch (Exception e) {
@@ -135,7 +134,7 @@ public class Product50 {
 				}
 
 				//checking Articles is persent/not from productUrl
-		        try {
+		                try {
 		        	Articles = doc.getElementById("reviews").hasText();
 					System.out.println("The product has Articles topic found ");
 				} catch (Exception e) {
@@ -182,26 +181,25 @@ public class Product50 {
 				PreparedStatement statement = conn.prepareStatement(sql);
 				statement.setString(1,productName );
 				statement.setString(2,productUrl );
-                statement.setBoolean(3,SWScore );
-                statement.setBoolean(4,Description );
-                statement.setBoolean(5,Awards );
-                statement.setBoolean(6,Features );
-                statement.setBoolean(7,TechnicalDetails );
-                statement.setBoolean(8,Pricing );
-                statement.setBoolean(9,FAQ );
-                statement.setBoolean(10,RelatedCategories );
-                statement.setBoolean(11,Alternatives );
-                statement.setBoolean(12,Reviews );
-                statement.setBoolean(13,Videos );
-                statement.setBoolean(14,Screenshots );
-                statement.setBoolean(15,Articles );
-                statement.setBoolean(16, Downloads);
-                statement.setBoolean(17,Customers );
-                statement.setBoolean(18,Integrations);
-                //execute statement
+                		statement.setBoolean(3,SWScore );
+				statement.setBoolean(4,Description );
+				statement.setBoolean(5,Awards );
+				statement.setBoolean(6,Features );
+				statement.setBoolean(7,TechnicalDetails );
+				statement.setBoolean(8,Pricing );
+				statement.setBoolean(9,FAQ );
+				statement.setBoolean(10,RelatedCategories );
+				statement.setBoolean(11,Alternatives );
+				statement.setBoolean(12,Reviews );
+				statement.setBoolean(13,Videos );
+				statement.setBoolean(14,Screenshots );
+				statement.setBoolean(15,Articles );
+				statement.setBoolean(16, Downloads);
+				statement.setBoolean(17,Customers );
+				statement.setBoolean(18,Integrations);
+				//execute statement
 				statement.executeUpdate();
 				conn.close();
-			
 			}	
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
