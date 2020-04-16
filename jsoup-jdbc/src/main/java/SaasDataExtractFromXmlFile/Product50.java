@@ -39,7 +39,7 @@ public class Product50 {
 		
 				//checking SWScore is persent/not from productUrl
 		                try {
-		        	SWScore = doc.getElementsByClass("pop_score_d").hasText();
+		        		SWScore = doc.getElementsByClass("pop_score_d").hasText();
 					System.out.println("The product has SWScore topic found");
 				} catch (Exception e) {
 					System.out.println("The product has SWScore topic not found");
@@ -71,7 +71,7 @@ public class Product50 {
 				
 				//checking TechnicalDetails is persent/not from productUrl
 		                try {
-		        	TechnicalDetails = doc.getElementById("technical-details").hasText();
+		        		TechnicalDetails = doc.getElementById("technical-details").hasText();
 					System.out.println("The product has TechnicalDetails topic found ");
 				} catch (Exception e) {
 					System.out.println("The product has TechnicalDetails topic not found");
@@ -103,7 +103,7 @@ public class Product50 {
                  
 				//checking Alternatives is persent/not from productUrl
 		                try {
-		        	Alternatives = doc.getElementById("alternatives").hasText();
+		        		Alternatives = doc.getElementById("alternatives").hasText();
 					System.out.println("The product has Alternatives topic found ");
 				} catch (Exception e) {
 					System.out.println("The product has Alternatives topic not found");
@@ -135,7 +135,7 @@ public class Product50 {
 
 				//checking Articles is persent/not from productUrl
 		                try {
-		        	Articles = doc.getElementById("reviews").hasText();
+		        		Articles = doc.getElementById("reviews").hasText();
 					System.out.println("The product has Articles topic found ");
 				} catch (Exception e) {
 					System.out.println("The product has Articles topic not found");
