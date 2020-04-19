@@ -32,56 +32,61 @@ public class Followers {
 				boolean linkedin = false,twitter, facebook, instagram, youtube;
 				String linkedinCount, twitterCount, facebookCount, instagramCount, youtubeCount;
 				String linkedinUrl, twitterUrl, facebookUrl, instagramUrl, youtubeUrl;
+				
 				Elements followers = doc.getElementsByClass("right_followers").select("a");
+				
 					for(Element element : followers) {
 						linkedinUrl = element.attr("abs:href");
 						if(linkedinUrl.contains("linkedin")){
-							linkedin = element.hasText();
+							linkedin = element.hasAttr("href");
 					    System.out.println(linkedin);
 						System.out.println(linkedinUrl);
-						linkedinCount = element.getElementsByTag("span").text();
-						System.out.println(linkedinCount);
-						}
-					}
-					for(Element element : followers) {
+						}else {
+							System.out.println(0);
+						}	
+						
 						twitterUrl = element.attr("abs:href");
 						if(twitterUrl.contains("twitter")){
-							twitter = element.hasText();
+							twitter = element.hasAttr("href");
 						    System.out.println(twitter);
 						System.out.println(twitterUrl);
 						twitterCount = element.getElementsByTag("span").text();
 						System.out.println(twitterCount);
+						}else {
+							System.out.println(0);
 						}
-					}
-					for(Element element : followers) {
+						
 						facebookUrl = element.attr("abs:href");
 						if(facebookUrl.contains("facebook")){
-							facebook = element.hasText();
+							facebook = element.hasAttr("href");
 						    System.out.println(facebook);
 						System.out.println(facebookUrl);
 						facebookCount = element.getElementsByTag("span").text();
 						System.out.println(facebookCount);
+						}else {
+							System.out.println(0);
 						}
-					}
-					for(Element element : followers) {
+						
 						instagramUrl = element.attr("abs:href");
 						if(instagramUrl.contains("instagram")){
-							instagram = element.hasText();
+							instagram = element.hasAttr("href");
 						    System.out.println(instagram);
 						System.out.println(instagramUrl);
 						instagramCount = element.getElementsByTag("span").text();
 						System.out.println(instagramCount);
+						}else {
+							System.out.println(0);
 						}
-					}
 				
-					for(Element element : followers) {
 						youtubeUrl = element.attr("abs:href");
 						if(youtubeUrl.contains("youtube")){
-							youtube = element.hasText();
+							youtube = element.hasAttr("href");
 						    System.out.println(youtube);
 						System.out.println(youtubeUrl);
 						youtubeCount = element.getElementsByTag("span").text();
 						System.out.println(youtubeCount);
+						}else {
+							System.out.println(0);
 						}
 				}
 			}
