@@ -25,6 +25,7 @@ public class Followers {
 			scan = new Scanner(file);
 			while (scan.hasNextLine()) {
 
+				boolean linkedin = false, twitter = false, facebook = false, instagram = false, youtube = false;
 				String linkedinCount = "0", twitterCount = "0", facebookCount = "0", instagramCount = "0",
 						youtubeCount = "0";
 				String linkedinUrl = "null", twitterUrl = "null", facebookUrl = "null", instagramUrl = "null",
@@ -36,17 +37,57 @@ public class Followers {
 				System.out.println(productUrl);
 				productName = doc.getElementsByClass("h-title").text();
 				System.out.println(productName);
+				String Url;
 				Elements followers = doc.getElementsByClass("right_followers").select("a");
-String linkedin;
+
 				for (Element element : followers) {
-				 public void Follow(String Url ,String linkedin) {
-					 if(Url.contains("linkedin")) {
-						 
-					 }
-					 return;
-				 }
-					
-				} 
+					Url = element.attr("abs:href");
+					if (Url.contains("linkedin")) {
+						linkedin = Url.contains("linkedin");
+						linkedinUrl = element.attr("href");
+						linkedinCount = element.getElementsByTag("span").text();
+						System.out.println("Product has linkedin " + linkedin);
+						System.out.println("linkedin url is" + linkedinUrl);
+						System.out.println("linkedinCount" + linkedinCount);
+					}
+
+					if (Url.contains("twitter")) {
+						twitter = Url.contains("twitter");
+						twitterUrl = element.attr("href");
+						twitterCount = element.getElementsByTag("span").text();
+						System.out.println(twitter);
+						System.out.println(twitterUrl);
+						System.out.println(twitterCount);
+					}
+
+					if (Url.contains("facebook")) {
+						facebook = Url.contains("facebook");
+						facebookUrl = element.attr("href");
+						facebookCount = element.getElementsByTag("span").text();
+						System.out.println(facebook);
+						System.out.println(facebookUrl);
+						System.out.println(facebookCount);
+					}
+
+					if (Url.contains("instagram")) {
+						instagram = Url.contains("instagram");
+						instagramUrl = element.attr("href");
+						instagramCount = element.getElementsByTag("span").text();
+						System.out.println(instagram);
+						System.out.println(instagramUrl);
+						System.out.println(instagramCount);
+
+					}
+
+					if (Url.contains("youtube")) {
+						youtube = Url.contains("youtube");
+						youtubeUrl = element.attr("href");
+						youtubeCount = element.getElementsByTag("span").text();
+						System.out.println(youtube);
+						System.out.println(youtubeUrl);
+						System.out.println(youtubeCount);
+					}
+				}
 				Connection conn = DriverManager.getConnection(url, username, password);
 				String sql;
 				sql = "INSERT INTO followers (productUrl,productName,linkedin,twitter,facebook,instagram,youtube,linkedinCount,twitterCount,facebookCount, instagramCount,youtubeCount,linkedinUrl,twitterUrl,facebookUrl,instagramUrl,youtubeUrl ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
