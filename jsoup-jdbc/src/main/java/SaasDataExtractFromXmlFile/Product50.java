@@ -40,6 +40,15 @@ public class Product50 {
 				String linkedinUrl = "null", twitterUrl = "null", facebookUrl = "null", instagramUrl = "null",
 						youtubeUrl = "null";
 				String Url;
+				
+				String description;
+				int countWorddescription = 0;
+				description =doc.getElementById("sass-desc").text();
+			    System.out.println(description);
+			    String[] wordList = description.split("\\s+"); 
+                countWorddescription = wordList.length; 
+                System.out.println(countWorddescription);
+            
 
 				// Getting productName from productUrl
 				productName = doc.getElementsByClass("h-title").text();
@@ -240,10 +249,10 @@ public class Product50 {
 						             + "Reviews ,Videos, Screenshots ,Articles ,Downloads ,Customers ,"
 						             + "Integrations, linkedin, linkedinCount, linkedinUrl, twitter, twitterCount,"
 						             + "twitterUrl, facebook, facebookCount, facebookUrl, instagram, instagramCount,"
-						             + "instagramUrl, youtube, youtubeCount, youtubeUrl)"
+						             + "instagramUrl, youtube, youtubeCount, youtubeUrl,countWorddescription)"
 						             + " VALUES (?,?,?,?,?,?,?,?,?,?,?,"
 						             +          "?,?,?,?,?,?,?,?,?,?,?,"
-						             +          "?,?,?,?,?,?,?,?,?,?,?,?) ";
+						             +          "?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 				// Create a statement
 				PreparedStatement statement = conn.prepareStatement(sql);
 				statement.setString(1, productName);
@@ -280,6 +289,7 @@ public class Product50 {
 				statement.setBoolean(32, youtube);
 				statement.setString(33, youtubeCount);
 				statement.setString(34, youtubeUrl);
+				statement.setInt(35, countWorddescription);
 				// execute statement
 				statement.executeUpdate();
 				conn.close();
